@@ -141,7 +141,18 @@ export const handlers = [
       { id: 2, full_name: "octocat/earth" },
     ]),
   ),
-  
+  http.get("/api/github/user", () => {
+    const user: GitHubUser = {
+      id: 1,
+      login: "octocat",
+      avatar_url: "https://avatars.githubusercontent.com/u/583231?v=4",
+      company: "GitHub",
+      email: "placeholder@placeholder.placeholder",
+      name: "monalisa octocat",
+    };
+
+    return HttpResponse.json(user);
+  }),
   http.post("http://localhost:3001/api/submit-feedback", async () =>
     HttpResponse.json({ statusCode: 200 }, { status: 200 }),
   ),
